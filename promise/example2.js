@@ -22,3 +22,11 @@ cleanroom
   .then((result) => takeoutgarbage(result))
   .then((result) => winicecream(result))
   .then((result) => console.log("finished " + result));
+
+Promise.all([cleanroom, takeoutgarbage(), winicecream()]).then(() => {
+  console.log("all finished");
+});
+
+Promise.race([cleanroom, takeoutgarbage(), winicecream()]).then(() => {
+  console.log("Any one finished");
+});
